@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: eka-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: eka_db
+      MYSQL_USER: eka_user
+      MYSQL_PASSWORD: eka_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - eka-network
+
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: eka-chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - eka-network
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: ../docker/backend/Dockerfile
+    container_name: eka-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_USERNAME: eka_user
+      DB_PASSWORD: eka_password
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/eka_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      CHROMA_HOST: chroma
+      CHROMA_PORT: 8000
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      chroma:
+        condition: service_healthy
+    networks:
+      - eka-network
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: ../docker/frontend/Dockerfile
+    container_name: eka-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - eka-network
+
+volumes:
+  mysql_data:
+  chroma_data:
+
+networks:
+  eka-network:
+    driver: bridge

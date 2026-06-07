@@ -1,0 +1,11 @@
+package com.enterprise.eka.api.common;
+
+public enum WorkflowType {
+    LEAVE_APPROVAL,
+    PERMISSION_APPROVAL,
+    REIMBURSEMENT_APPROVAL,
+    COMPLAINT_HANDLING,
+    EMPLOYEE_ONBOARDING,
+    RECRUITMENT_PIPELINE,
+    PROJECT_APPROVAL
+}

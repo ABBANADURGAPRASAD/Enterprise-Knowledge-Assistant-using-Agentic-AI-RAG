@@ -1,0 +1,13 @@
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/common/AgentType.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/common/DocumentClassification.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/common/RoleType.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/common/WorkflowType.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/ApiResponse.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/AuthResponse.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/ChatRequest.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/ChatResponse.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/LoginRequest.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/RagQueryRequest.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/dto/WorkflowInstanceDto.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/model/AgentContext.java
+/Users/ent-00210/Desktop/Project Documents/Enterprise-Knowledge-Assistant-using-Agentic-AI-RAG/backend/backend-api/src/main/java/com/enterprise/eka/api/model/RetrievedDocument.java
